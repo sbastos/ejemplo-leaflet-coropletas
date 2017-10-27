@@ -31,7 +31,7 @@
       });
       osm.addTo(mapa);
 	var mymap = L.map('mapid').setView([9.7, -84], 8);
-    	var osm1  = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicHVraTEwIiwiYSI6ImNqODU2cHh3eTBneHYyeHFrN2o0bHhoY2MifQ.knIKQgzK5vbk1lQ5kCMCoA', {
+    	var mpb  = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicHVraTEwIiwiYSI6ImNqODU2cHh3eTBneHYyeHFrN2o0bHhoY2MifQ.knIKQgzK5vbk1lQ5kCMCoA', {
 		maxZoom: 15,
     		minZoom: 8,
 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -111,7 +111,7 @@
 	    
       var baseLayers = {
 	"OpenStreetMap": osm;
-	"Mapbox": 	 osm1;      
+	"Mapbox": 	mpb    
       };
       var overlays = {
 	"Riqueza de especies": riqueza,
