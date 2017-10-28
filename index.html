@@ -43,19 +43,29 @@
 	       d > 115047.60 ? '#a50f15' :
 	       d > 172571.40 ? '#cb181d' :
 	       d > 230095.20 ? '#ef3b2c' :
-		        '#fcbba1';
+		       	       '#fcbba1';
       }	    
-      function infoRiqueza(feature, layer) {
-	var popupContent = "Riqueza de especies: ";
-	if (feature.properties && feature.properties.spprichnes) {
-	  popupContent += feature.properties.spprichnes;
+      function cantones(feature, layer) {
+	var popupContent = "Nombre del cantón: ";
+	if (feature.properties && feature.properties.ncanton) {
+	  popupContent += feature.properties.ncanton;
 	} else {
 	  popupContent += 0; 
 	}
 	layer.bindPopup(popupContent);
-      }	    	    
+      }	   
+	          }	    
+      function cantones(feature, layer) {
+	var popupContent = "Dato de población: ";
+	if (feature.properties && feature.properties.pob_2011_t) {
+	  popupContent += feature.properties.pob_2011_t;
+	} else {
+	  popupContent += 0; 
+	}
+	layer.bindPopup(popupContent);
+      }	  
 	    
-      var riqueza = L.geoJson(riqespecies, {
+      var canton = L.geoJson(cantones, {
         style: function (feature) {
 	  return {
 	    weight: 2,
@@ -67,7 +77,7 @@
           };
         },
 	      
-	onEachFeature: infoRiqueza
+	onEachFeature: cantones
       })
       riqueza.addTo(mapa);
 	    
@@ -81,7 +91,7 @@
       }	    
 	    
 	    
-      registrosPresencia = L.geoJson(regpresencia, {
+      cantones = L.geoJson(cantones, {
         style: function (feature) {
 	  return {
             fillColor: '#0000ff', 
@@ -89,29 +99,7 @@
           };
         },
         
-	pointToLayer: function (feature, latlng) {
-	  return L.circleMarker(latlng, {
-	    radius: 3,
-	    fillColor: "#ff7800",
-	    color: "#000",
-	    weight: 1,
-	    opacity: 1,
-	    fillOpacity: 0.8
-	  });
-	},
-	      
-	onEachFeature: infoPresencia
-      })
-      registrosPresencia.addTo(mapa);	    
-	    
-      var baseLayers = {
-	"OpenStreetMap": osm,
-	"Mapbox": 	mpb    
-      };
-      var overlays = {
-	"Riqueza de especies": riqueza,
-	"Registros de presencia": registrosPresencia
-      };
+
       L.control.layers(baseLayers, overlays).addTo(mapa);
 	    
       L.control.mousePosition().addTo(mapa);
