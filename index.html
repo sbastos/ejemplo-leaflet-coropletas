@@ -42,18 +42,11 @@
       var esri = L.tileLayer.provider('Esri.WorldShadedRelief');
       esri.addTo(mapa); 
       // Capa de tipo wms tomada de http://www.snitcr.go.cr/servicios_ogc   
-       var wms1 = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
-      layers: 'limitedistrital_5k'
-      });
-       wms1.addTo(mapa);
+
       var wmsLayer = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
-      layers: 'limiteprovincial_5k'
+      layers: 'limiteprovincial_5k','Limitedistrital_5k','urbano_5k'
       });
        wmsLayer.addTo(mapa);
-       var wms2 = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
-      layers: 'urbano_5k'
-      });
-       wms2.addTo(mapa);
 
 	  
       // retorna un color con base en la cantidad de especies
@@ -104,10 +97,9 @@
 	      
       };
       var overlays = {
-	"Cantones": cantoncr,
-	"Distritos"   : wms1,   
-	"Provincias" : wmsLayer,
-	"Urbano" : wms2      
+	"Cantones": cantoncr, 
+	"Provincias" : wmsLayer
+  
 	   	
       };
       L.control.layers(baseLayers, overlays).addTo(mapa);
