@@ -46,10 +46,10 @@
       layers: 'limiteprovincial_5k'
       });
        wmsLayer.addTo(mapa);
-      var wmsmopt = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_MOPT/wms?', {
-      layers: 'aviacionsuperficies_mopt'
+      var wmsri = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_RI/wms?', {
+      layers: 'zonacatastrada'
       });
-       wmsmopt.addTo(mapa);
+       wmsri.addTo(mapa);
 	  
       // retorna un color con base en la cantidad de especies
       function color(d) {
@@ -101,7 +101,7 @@
       var overlays = {
 	"Cantones": cantoncr,
 	"Límite Provincial" : wmsLayer,
-	"Aeropuertos"       : wmsmopt      
+	"Zona Catastrada"   : wmsri      
 	
       };
       L.control.layers(baseLayers, overlays).addTo(mapa);
