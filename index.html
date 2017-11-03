@@ -40,7 +40,13 @@
       var roads = L.tileLayer.provider('OpenMapSurfer.Roads');
       roads.addTo(mapa);  
       var esri = L.tileLayer.provider('Esri.WorldShadedRelief');
-      esri.addTo(mapa);  
+      esri.addTo(mapa); 
+      // Capa de tipo wms tomada de http://www.snitcr.go.cr/servicios_ogc    
+      var wmsLayer = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
+      layers: 'limiteprovincial_5k'
+      });
+       
+       wmsLayer.addTo(mapa);
 	  
       // retorna un color con base en la cantidad de especies
       function color(d) {
@@ -83,10 +89,11 @@
 	    	    
 	    
       var baseLayers = {
-	"OpenStreetMap": osm,
-	"OpenTopoMap" : topo,
-	"OpenMapSurfer.Roads" : roads,
-	"Esri.WorldShadedRelief" : esri    
+	"OpenStreetMap"          : osm,
+	"OpenTopoMap"            : topo,
+	"OpenMapSurfer.Roads"    : roads,
+	"Esri.WorldShadedRelief" : esri,
+	"WMS"                    : wmsLayer      
       };
       var overlays = {
 	"Cantones": cantoncr
