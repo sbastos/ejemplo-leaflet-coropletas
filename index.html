@@ -92,11 +92,12 @@
 	"OpenStreetMap"          : osm,
 	"OpenTopoMap"            : topo,
 	"OpenMapSurfer.Roads"    : roads,
-	"Esri.WorldShadedRelief" : esri,
-	"WMS"                    : wmsLayer      
+	"Esri.WorldShadedRelief" : esri
+	      
       };
       var overlays = {
-	"Cantones": cantoncr
+	"Cantones": cantoncr,
+	"Límite Provincial"     : wmsLayer      
 	
       };
       L.control.layers(baseLayers, overlays).addTo(mapa);
