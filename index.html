@@ -40,9 +40,9 @@
       function color(d) {
 	return d > 163751  ? '#a63603' :
 	       d >  80573  ? '#e6550d' :
-	       d >  49008   ? '#fd8d3c' :
-		   d >  26892  ? '#fdbe85' :
-						     '#feedde';
+	       d >  49008  ? '#fd8d3c' :
+	       d >  26892  ? '#fdbe85' :
+			     '#feedde';
       }	    
       function cantones1(feature, layer) {
 	var popupContent = "";
@@ -78,7 +78,7 @@
 	    
       var baseLayers = {
 	"OpenStreetMap": osm,
-	"TopoMao" : topo
+	"TopoMap" : topo,
       };
       var overlays = {
 	"Cantones": cantoncr
