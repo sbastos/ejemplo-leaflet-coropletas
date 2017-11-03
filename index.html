@@ -37,7 +37,11 @@
       // Capa de tipo L.tileLayer definida con el complemento Leaflet-providers
       var topo = L.tileLayer.provider('OpenTopoMap');
       topo.addTo(mapa);      
-	    
+      var roads = L.tileLayer.provider('OpenMapSurfer.Roads');
+      roads.addTo(mapa);  
+      var terrain = L.tileLayer.provider('Stamen.TerrainBackground');
+      terrain.addTo(mapa);  
+	  
       // retorna un color con base en la cantidad de especies
       function color(d) {
 	return d > 163751  ? '#a63603' :
@@ -80,7 +84,9 @@
 	    
       var baseLayers = {
 	"OpenStreetMap": osm,
-	"OpenTopoMap" : topo
+	"OpenTopoMap" : topo,
+	"OpenMapSurfer.Roads" : roads,
+	"Stamen.TerrainBackground" : terrain    
       };
       var overlays = {
 	"Cantones": cantoncr
