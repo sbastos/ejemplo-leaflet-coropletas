@@ -41,13 +41,20 @@
       roads.addTo(mapa);  
       var esri = L.tileLayer.provider('Esri.WorldShadedRelief');
       esri.addTo(mapa); 
-      // Capa de tipo wms tomada de http://www.snitcr.go.cr/servicios_ogc   
-
+      // Capa de tipo wms tomada de http://www.snitcr.go.cr/servicios_ogc  
+	    
       var wmsLayer = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
-      layers: 'limiteprovincial_5k','Limitedistrital_5k','urbano_5k'
+      layers: 'IGN_5:LimiteProvincial_5k','Limitedistrital_5k','urbano_5k'
       });
        wmsLayer.addTo(mapa);
-
+      var wmsLayer1 = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
+      layers: 'IGN_5:LimiteDistrital_5k'
+      });
+       wmsLayer1.addTo(mapa);
+      var wmsLayer2 = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
+      layers: 'IGN_5:Urbano_5k'
+      });
+       wmsLayer2.addTo(mapa);	
 	  
       // retorna un color con base en la cantidad de especies
       function color(d) {
@@ -98,7 +105,9 @@
       };
       var overlays = {
 	"Cantones": cantoncr, 
-	"Provincias" : wmsLayer
+	"Provincias" : wmsLayer,
+	"Distrito" :   wmsLayer1,
+	"Urbano"   :   wmsLayer2      
   
 	   	
       };
