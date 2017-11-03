@@ -39,8 +39,8 @@
       topo.addTo(mapa);      
       var roads = L.tileLayer.provider('OpenMapSurfer.Roads');
       roads.addTo(mapa);  
-      var terrain = L.tileLayer.provider('Stamen.TerrainBackground');
-      terrain.addTo(mapa);  
+      var esri = L.tileLayer.provider('Esri.WorldShadedRelief');
+      esri.addTo(mapa);  
 	  
       // retorna un color con base en la cantidad de especies
       function color(d) {
@@ -86,7 +86,7 @@
 	"OpenStreetMap": osm,
 	"OpenTopoMap" : topo,
 	"OpenMapSurfer.Roads" : roads,
-	"Stamen.TerrainBackground" : terrain    
+	"Esri.WorldShadedRelief" : esri    
       };
       var overlays = {
 	"Cantones": cantoncr
